@@ -14,13 +14,13 @@ Recent operating systems like Ubuntu and Raspian should support this when using 
 
 # Quickstart
 
-Note: If you're not using HASS.io official image, please check bellow the pre-requisites before continuing.
+Note: If you're not using HASS.io official image, please check the [pre-requisites](#Non-HASS.io-installations) below before continuing.
 
 How to get started:
 
 1. Copy the contents of `custom_components` in this repo to `<config folder>/custom_components` (but do **not** change `configuration.yaml` yet).
 2. Restart HA to install the custom component and all the dependencies.
-3. Add the sensors to `configuration.yaml` according to the instructions bellow.
+3. Add the sensors to `configuration.yaml` according to the instructions below.
 4. Restart HA again
 
 ## Configuration
@@ -41,8 +41,8 @@ sensor:
 The code in `setup_platform` is called once per platform, so at boot time multiple blocking requests to IO will be performed, 
 resulting in only one of the platforms beings successfully setup.
 
-### Monitoring only certain paramters
-If you don't want to monitor all of variables from all of the tags, it is possible to pick which ones you want Home Assistant to save and monitor. You can do that for each sensor by passing the `monitored_conditions` parameter like so:
+### Monitoring only certain parameters
+If you don't want to monitor all of the variables from all of the tags, it is possible to pick which ones you want Home Assistant to save and monitor. You can do that for each sensor by passing the `monitored_conditions` parameter like so:
 
 ```
 sensor:
@@ -80,7 +80,7 @@ The hass component supports passing the bluetoth adapter.
 Adapter defaults to the default of ble library
 
 ### Throttling state updates
-Because we're getting data from the devices every second or so (and updating HomeAssistand database every seconds) this can greatly impact the lifespan of your SD card and storage device (eg. Raspberry pi). As a compromise, we're only updating the sensor's state every 10 seconds. Howver you can change this value by passing a value to the `max_update_frequency` as you please. Eg. 0 will update HomeAssistant state as soon as the new data arrives and not lose any data, 10 will discard all data recieved 10 seconds after each sensor update.
+Because we're getting data from the devices every second or so (and updating HomeAssistant database every seconds) this can greatly impact the lifespan of your SD card and storage device (eg. Raspberry pi). As a compromise, we're only updating the sensor's state every 10 seconds. However you can change this value by passing a value to the `max_update_frequency` as you please. Eg. 0 will update HomeAssistant state as soon as the new data arrives and not lose any data, 10 will discard all data recieved 10 seconds after each sensor update.
 
 ```
   - platform: ruuvi
